@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: "A sua agência de desenvolvimento web.",
 };
 
-const aldrich = Aldrich({ subsets: ["latin"], weight: "400" });
+const aldrich = Aldrich({ subsets: ["latin"], weight: ["400"]});
 
 export default function RootLayout({
   children,
