@@ -15,7 +15,7 @@ export default function Page() {
   ];
 
   return (
-    <section className="relative w-screen h-screen overflow-hidden">
+    <section id="Skills" className="relative w-screen h-screen overflow-hidden">
       <Carrossel slides={slides} />
       <Light />
     </section>

@@ -5,7 +5,7 @@ export default function Creative() {
   return (
     <section className="w-screen h-screen text-center flex flex-col gap-6 items-center justify-center px-32">
     <Blur />
-      <div className="max-w-5xl w-full items-center">
+      <div className="w-full items-center">
             <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold flex flex-wrap gap-3 justify-center items-center mb-6">
                 Sites 
                 <RotatingText
@@ -25,12 +25,12 @@ export default function Creative() {
             Design que inspira e cria presença.
           </h2>
 
-          <p className="text-white/70 leading-relaxed mb-8">
+          <p className="leading-relaxed mb-8">
             Unimos estética, conceito e técnica para criar experiências
             visuais que se destacam em qualquer cenário digital.
           </p>
 
-          <ul className="space-y-3 text-white/80">
+          <ul className="space-y-3">
             <li>• Direção de arte moderna e minimalista</li>
             <li>• Tipografia e cores estratégicas</li>
             <li>• Visual storytelling para engajamento</li>
