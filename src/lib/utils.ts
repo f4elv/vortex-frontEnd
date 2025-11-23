@@ -17,7 +17,7 @@ export function useInView(threshold: number = 0.2) {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          // observer.disconnect(); // dispara apenas uma vez
+          observer.disconnect();
         }
       },
       { threshold }

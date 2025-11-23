@@ -8,52 +8,42 @@ import Button from "@/components/ui/button";
 
 export default function StepOne({ onContinue }: StepOneProps) {
   return (
-    <div className="w-full bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl p-6 shadow-lg animate-fade-in">
-      <h2 className="text-3xl md:text-4xl font-bold mb-3 text-center">
-        Nos conte mais sobre o seu projeto
-      </h2>
+<div className="
+  w-full max-w-4xl
+  bg-white/5 border border-white/10 backdrop-blur-xl
+  rounded-3xl p-6 sm:p-10
+  shadow-lg animate-fade-in
+">
+  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-center">
+    Nos conte mais sobre o seu projeto
+  </h2>
 
-      <p className="text-center mb-6">
-        Isso nos ajuda a entender escopo, prazos e abordagem ideal para sua marca.
-      </p>
+  <p className="text-center mb-6 text-sm sm:text-base">
+    Isso nos ajuda a entender escopo, prazos e abordagem ideal para sua marca.
+  </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
-        <input
-          className="px-4 py-3 rounded-xl bg-black/20 border border-white/10 focus:border-purple-600 outline-none transition"
-          placeholder="Seu Nome"
-          type="text"
-        />
-        <input
-          className="px-4 py-3 rounded-xl bg-black/20 border border-white/10 focus:border-purple-600 outline-none transition"
-          placeholder="Número de Trabalho"
-          type="telephone"
-        />
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <input className="input" placeholder="Seu Nome" />
 
-        <input
-          className="px-4 py-3 rounded-xl bg-black/20 border border-white/10 focus:border-purple-600 outline-none transition col-span-2"
-          placeholder="Empresa / Projeto"
-          type="text"
-        />
+    <input className="input" placeholder="Número de Trabalho" type="tel" />
 
-        <textarea
-          rows={4}
-          className="px-4 py-3 rounded-xl bg-black/20 border border-white/10 focus:border-purple-600 outline-none transition col-span-2"
-          placeholder="Descrição do Projeto"
-        />
+    <input
+      className="input sm:col-span-2"
+      placeholder="Empresa / Projeto"
+    />
 
-        <input
-          className="px-4 py-3 rounded-xl bg-black/20 border border-white/10 focus:border-purple-600 outline-none transition"
-          placeholder="Prazo Ideal"
-          type="text"
-        />
-        <input
-          className="px-4 py-3 rounded-xl bg-black/20 border border-white/10 focus:border-purple-600 outline-none transition"
-          placeholder="Orçamento Estimado"
-          type="text"
-        />
-      </div>
+    <textarea
+      className="input sm:col-span-2"
+      rows={4}
+      placeholder="Descrição do Projeto"
+    />
 
-        <Button onClick={onContinue} className="w-full mt-6">Continuar</Button>
-      </div>
+    <input className="input" placeholder="Prazo Ideal" />
+    <input className="input" placeholder="Orçamento Estimado" />
+  </div>
+
+  <Button onClick={onContinue} className="w-full mt-6">Continuar</Button>
+</div>
+
   );
 }

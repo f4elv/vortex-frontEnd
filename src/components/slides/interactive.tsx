@@ -3,8 +3,14 @@ import Blur from "../ui/blur";
 
 export default function Interactive() {
   return (
-    <section className="w-screen h-screen flex items-center justify-center px-12 relative overflow-hidden">
-      <Blur />
+<section className="
+  w-full min-h-screen flex items-center justify-center
+  px-6 sm:px-12 md:px-20 lg:px-32
+  relative overflow-hidden
+">
+  <Blur />
+
+
       <div className="absolute inset-0 z-10">
         <PixelTrail
           gridSize={50}
@@ -15,27 +21,29 @@ export default function Interactive() {
           gooeyFilter={{ id: "custom-goo-filter", strength: 2 }}
         />
       </div>
-      <div className="max-w-5xl w-full flex flex-col text-center items-center z-0 relative">
 
-        <div>
-          <h1 className="text-6xl font-extrabold mb-4">Sites Imersivos</h1>
-          <h2 className="text-xl text-stone-950 font-bold mb-6">
-            Experiências dinâmicas que prendem a atenção.
-          </h2>
+  <div className="max-w-5xl w-full flex flex-col text-center items-center relative">
 
-          <p className="leading-relaxed mb-8">
-            Criamos interfaces que respondem ao usuário, utilizando animações,
-            microinterações e respostas inteligentes que tornam cada ação memorável.
-          </p>
+    <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4">
+      Sites Imersivos
+    </h1>
 
-          <ul className="space-y-3">
-            <li>• Animações suaves e responsivas</li>
-            <li>• Imersividade baseada em comportamento</li>
-            <li>• Efeitos modernos: parallax, hover, scroll</li>
-          </ul>
-        </div>
+    <h2 className="text-lg sm:text-xl md:text-2xl text-stone-950 font-bold mb-6">
+      Experiências dinâmicas e responsivas.
+    </h2>
 
-      </div>
-    </section>
+    <p className="leading-relaxed mb-8 text-sm sm:text-base">
+      Interfaces fluidas, animações modernas e comportamento inteligente.
+    </p>
+
+    <ul className="space-y-3 text-sm sm:text-base">
+      <li>• Animações suaves</li>
+      <li>• Interações comportamentais</li>
+      <li>• Efeitos modernos</li>
+    </ul>
+  </div>
+</section>
+
   );
 }
+

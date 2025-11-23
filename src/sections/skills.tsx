@@ -6,7 +6,7 @@ import Interactive from "@/components/slides/interactive";
 
 import Light from "@/components/ui/light";
 
-export default function Page() {
+export default function Skills() {
   const slides = [
     <Creative key="1" />,
     <Interactive key="2" />,
@@ -15,7 +15,7 @@ export default function Page() {
   ];
 
   return (
-    <section id="Skills" className="relative w-screen h-screen overflow-hidden">
+    <section id="Skills" className="relative w-screen min-h-screen overflow-hidden">
       <Carrossel slides={slides} />
       <Light />
     </section>

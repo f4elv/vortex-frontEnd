@@ -8,8 +8,9 @@ interface ModalProps {
 
 export default function ConfirmationModal({ onClose }: ModalProps) {
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-xl flex items-center justify-center z-50 animate-fade-in">
-      <div className="bg-[#111] border border-white/10 rounded-3xl p-10 max-w-lg w-full shadow-xl shadow-purple-500/20">
+<div className="fixed inset-0 bg-black/70 backdrop-blur-xl flex items-center justify-center z-50 p-4 animate-fade-in">
+  <div className="bg-[#111] border border-white/10 rounded-3xl p-6 sm:p-10 max-w-lg w-full shadow-xl shadow-purple-500/20">
+
         
         <h2 className="text-3xl font-bold text-center mb-6">
           Confirmação

@@ -27,12 +27,21 @@ export default function MultiStepForm() {
   }
 
   return (
-    <section id="Contact" className="relative w-full h-screen flex items-center justify-center px-32 py-2">
-      <Blur />
-      {step === 1 && <StepOne onContinue={next} />}
-      {step === 2 && <StepTwo onSubmit={openModal} onBack={back} />}
+<section
+  id="Contact"
+  className="
+    relative w-full min-h-screen
+    flex items-center justify-center
+    px-6 sm:px-12 md:px-20 lg:px-32
+    py-10
+  "
+>
+  <Blur />
 
-      {showModal && <ConfirmationModal onClose={closeModal} />}
-    </section>
+  {step === 1 && <StepOne onContinue={next} />}
+  {step === 2 && <StepTwo onSubmit={openModal} onBack={back} />}
+
+  {showModal && <ConfirmationModal onClose={closeModal} />}
+</section>
   );
 }
