@@ -1,12 +1,16 @@
 "use client";
 
+import { formData } from "@/sections/contact";
+
 interface StepOneProps {
   onContinue: () => void;
+  updateField: (field: string, value: any) => void;
+  data: formData
 }
 
 import Button from "@/components/ui/button";
 
-export default function StepOne({ onContinue }: StepOneProps) {
+export default function StepOne({ onContinue, updateField, data }: StepOneProps, ) {
   return (
     <div className="
       w-full max-w-4xl
@@ -20,24 +24,50 @@ export default function StepOne({ onContinue }: StepOneProps) {
       <p className="text-center mb-6 text-sm sm:text-base">
         Isso nos ajuda a entender escopo, prazos e abordagem ideal para sua marca.
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <input className="input" placeholder="Seu Nome" />
 
-        <input className="input" placeholder="Número de Trabalho" type="tel" />
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <input 
+        className="input" 
+        placeholder="Seu Nome"
+        value={data.name || ""}
+        onChange={(e) => updateField("name", e.target.value)}
+        />
+
+        <input 
+        className="input" 
+        placeholder="Número de Trabalho" 
+        value={data.phone || ""}
+        onChange={(e) => updateField("phone", e.target.value)}
+        />
 
         <input
           className="input sm:col-span-2"
           placeholder="Empresa / Projeto"
+          value={data.company || ""}
+          onChange={(e) => updateField("company", e.target.value)}
         />
 
         <textarea
           className="input sm:col-span-2"
           rows={4}
           placeholder="Descrição do Projeto"
+          value={data.projectDescription || ""}
+          onChange={(e) => updateField("projectDescription", e.target.value)}
         />
 
-        <input className="input" placeholder="Prazo Ideal" />
-        <input className="input" placeholder="Orçamento Estimado" />
+        <input 
+          className="input" 
+          placeholder="Prazo Ideal" 
+          value={data.deadline || ""}
+          onChange={(e) => updateField("deadline", e.target.value)}
+        />
+
+        <input 
+           className="input" 
+          placeholder="Orçamento Estimado"
+          value={data.budget || ""}
+          onChange={(e) => updateField("budget", e.target.value)} 
+        />
       </div>
 
       <Button

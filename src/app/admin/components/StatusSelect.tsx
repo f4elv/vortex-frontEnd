@@ -5,11 +5,11 @@ export function StatusSelect({ value, onChange }: any) {
       onChange={(e) => onChange(e.target.value)}
       className="p-3 bg-black/50 border border-purple-600 rounded-xl"
     >
-      <option value="novo">Novo</option>
-      <option value="respondido">Respondido</option>
-      <option value="em_andamento">Em andamento</option>
-      <option value="cancelado">Cancelado</option>
-      <option value="finalizado">Finalizado</option>
+      <option value="NOVO">Novo</option>
+      <option value="RESPONDIDO">Respondido</option>
+      <option value="EM_ANDAMENTO">Em andamento</option>
+      <option value="CANCELADO">Cancelado</option>
+      <option value="FINALIZADO">Finalizado</option>
     </select>
   );
 }

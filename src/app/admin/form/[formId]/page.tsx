@@ -15,8 +15,6 @@ export default function FormPage({ params }: { params: Promise<ParamsType> }) {
 
 	async function load() {
 		const res = await api.get(`/admin/${formId}`);
-		console.log(res);
-		console.log(res.data);
 		setForm(res.data);
 		setStatus(res.data.status);
 	}

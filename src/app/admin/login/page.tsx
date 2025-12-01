@@ -19,7 +19,7 @@ export default function AdminLoginPage() {
       const res = await api.post("/auth/admin/login", form);
       localStorage.setItem("access_token", res.data.access_token);
       console.log(res.data.access_token)
-      router.push("/admin/dashboard");
+      router.push("/admin");
     } catch (err) {
       alert("Credenciais inválidas");
     } finally {
