@@ -6,23 +6,7 @@ import StepTwo from "@/components/steps/stepTwo";
 import ConfirmationModal from "@/components/steps/confirmationModal";
 import Blur from "@/components/ui/blur";
 import { api } from "@/lib/api";
-
-export enum ProjectType {
-  LANDING_PAGE = "Landing Page",
-  DASHBOARD = "Dashboard",
-  OUTRO = "Outro"
-}
-
-export type formData = {
-  name: string,
-  phone: string,
-  company: string,
-  projectDescription: string,
-  deadline: string,
-  budget: string,
-  projectType: ProjectType | "",
-  extraDetails: string
-}
+import { formData } from "@/lib/utils";
 
 export default function MultiStepForm() {
   const [step, setStep] = useState<1 | 2>(1);
@@ -66,7 +50,7 @@ export default function MultiStepForm() {
       const response = await api.post("/user", data);
 
       console.log("Form enviado:", response.data);
-      alert("Form enviado com sucesso!");
+      alert("Formulário enviado com sucesso!");
 
       setShowModal(false);
     } catch (error) {

@@ -1,6 +1,8 @@
 "use client";
 
-import { formData } from "@/sections/contact";
+import { formData } from "@/lib/utils";
+import { StepOneSchema } from "@/lib/formSchema";
+import { useState } from "react";
 
 interface StepOneProps {
   onContinue: () => void;
@@ -11,6 +13,20 @@ interface StepOneProps {
 import Button from "@/components/ui/button";
 
 export default function StepOne({ onContinue, updateField, data }: StepOneProps, ) {
+  const [error, setErrors] = useState<any>()
+
+
+  function handleNext() {
+    const result = StepOneSchema.safeParse(data);
+
+    if (!result.success) {
+      setErrors(result.error.flatten().fieldErrors);
+      return;
+    }
+
+    setErrors({});
+    onContinue();
+  }
   return (
     <div className="
       w-full max-w-4xl
@@ -72,8 +88,8 @@ export default function StepOne({ onContinue, updateField, data }: StepOneProps,
 
       <Button
         variant="primary"
-        onClick={onContinue}
-         className="w-full mt-6"
+        onClick={handleNext}
+        className="w-full mt-6"
         >
         Continuar
       </Button>

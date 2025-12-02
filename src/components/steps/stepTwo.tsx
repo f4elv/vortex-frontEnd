@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Button from "../ui/button";
-import { formData, ProjectType } from "@/sections/contact";
+import { formData, ProjectType } from "@/lib/utils";
 
 interface StepTwoProps {
   onSubmit: () => void;

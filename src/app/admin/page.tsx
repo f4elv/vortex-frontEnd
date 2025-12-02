@@ -12,23 +12,17 @@ export default function AdminDashboard() {
     status: "",
     projectType: "",
   });
+
+  useEffect(() => {
+    load();
+  }, []);
+
   const router = useRouter();
 
   async function load() {
     const res = await api.get("/admin/forms");
     setForms(res.data);
   }
-
-  useEffect(() => {
-    load();
-  }, []);
-
-  const filtered = forms.filter((f) => {
-    return (
-      (!filters.status || f.status === filters.status) &&
-      (!filters.projectType || f.projectType === filters.projectType)
-    );
-  });
 
   async function logout() {
     await api.post("/auth/logout");
@@ -38,25 +32,35 @@ export default function AdminDashboard() {
     router.push("/admin/login");
   }
 
+  const filtered = forms.filter((f) => {
+    return (
+      (!filters.status || f.status === filters.status) &&
+      (!filters.projectType || f.projectType === filters.projectType)
+    );
+  });
+
   return (
-    <div className="min-h-screen p-10 bg-black text-white relative">
+    <div className="min-h-screen p-10 relative">
 
-      <div className="absolute inset-0 bg-purple-600/10 blur-2xl animate-pulse"></div>
+      <div className="flex justify-between items-center">
+        <h1 className="text-4xl font-bold text-purple-400 relative mb-6">Formulários Recebidos</h1>
+        <Button 
+          variant="secondary"
+          onClick={logout}
 
-      <h1 className="text-4xl font-bold text-purple-400 relative mb-6">Formulários Recebidos</h1>
-      <Button 
-        variant="secondary"
-        onClick={logout}
+        >
+          Logout
+        </Button>
+      </div>
 
-      />
 
-      {/* Filtros */}
-      <div className="relative flex gap-4 mb-10">
+      <div className="relative flex gap-4 mb-10 items-center">
+        <span className="text-2xl">Status</span>
         <select
           className="bg-black/60 border border-purple-700 p-3 rounded-xl"
           onChange={(e) => setFilters({ ...filters, status: e.target.value })}
         >
-          <option value="">Status</option>
+          <option value="">Todos</option>
           <option value="NOVO">Novo</option>
           <option value="RESPONDIDO">Respondido</option>
           <option value="EM_ANDAMENTO">Em andamento</option>
@@ -64,18 +68,18 @@ export default function AdminDashboard() {
           <option value="FINALIZADO">Finalizado</option>
         </select>
 
+        <span className="text-2xl">Tipo do projeto</span>
         <select
           className="bg-black/60 border border-purple-700 p-3 rounded-xl"
           onChange={(e) => setFilters({ ...filters, projectType: e.target.value })}
         >
-          <option value="">Tipo do Projeto</option>
+          <option value="">Todos</option>
           <option value="LANDING">Landing</option>
           <option value="DASHBOARD">Dashboard</option>
           <option value="OUTRO">Outro</option>
         </select>
       </div>
-
-      {/* Cards */}
+      
       <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filtered.map((form) => (
           <AdminCard key={form.id} form={form} />

@@ -30,3 +30,20 @@ export function useInView(threshold: number = 0.2) {
 
   return { ref, isVisible };
 }
+
+export enum ProjectType {
+  LANDING_PAGE = "Landing Page",
+  DASHBOARD = "Dashboard",
+  OUTRO = "Outro"
+}
+
+export type formData = {
+  name: string,
+  phone: string,
+  company: string,
+  projectDescription: string,
+  deadline: string,
+  budget: string,
+  projectType: ProjectType | "",
+  extraDetails: string
+}
